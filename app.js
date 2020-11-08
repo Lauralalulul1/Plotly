@@ -11,7 +11,7 @@ function getPlots(id) {
         console.log(ids)
  })
 
-// Bars
+// How we will display the bars
     svg.selectAll('rect')
         .data(booksReadThisYear)
         .enter()
@@ -43,10 +43,10 @@ function getPlots(id) {
 //Create the trace
     trace = {
         y: otu_ids.map(e => e.otu_ids),
-        x: sampleValues.map(e => e.sampleValues)
+        x: sampleValues.map(e => e.sampleValues),
         type: "bar",
         orientation: 'h',
-        marker: {"blue"},
+        marker: { color: "blue"},
 };
 
 // Create the data array for our plot
@@ -55,13 +55,13 @@ function getPlots(id) {
 // Define the plot layout
     var layout = {
         title: "Belly Button Diversity - Top 10 OTUs",
+        yaxis:{tickmmode: "linear"},
         margin: {
             l: 100,
             r: 100,
             t: 100,
-            b: 40
-    }
+            b: 40}
 };
 
-// Plot the chart to the div tag with id "plot"
-    Plotly.newPlot("plot", data, layout)
+// Plot the chart to the div tag with id "bar" 
+    Plotly.newPlot("bar", data, layout);}
